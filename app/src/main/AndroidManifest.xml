@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.teachsoft.dynamicclass">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".SignInActivity"
+            android:label="Sign In">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".BaseActivity" />
+        <activity
+            android:name=".SignUpActivity"
+            android:label="Sign Up" />
+        <activity
+            android:name=".HomeActivity"
+            android:label="Home" />
+        <activity
+            android:name=".MySubjectsActivity"
+            android:label="My Subjects"
+            android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.teachsoft.dynamicclass.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".MyProfileActivity"
+            android:label="My Profile"
+            android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.teachsoft.dynamicclass.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".AddSubjectActivity"
+            android:label="Add Subject"
+            android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.teachsoft.dynamicclass.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".CurrentSubjectActivity"
+            android:label="Current Subject"
+            android:parentActivityName=".MySubjectsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.teachsoft.dynamicclass.MySubjectsActivity" />
+        </activity>
+        <activity
+            android:name=".CurrentChapterActivity"
+            android:label="Current Chapter"
+            android:parentActivityName=".CurrentSubjectActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.teachsoft.dynamicclass.CurrentChapterActivity" />
+        </activity>
+        <activity
+            android:name=".StudentPerformanceActivity"
+            android:label="Student Performance"
+            android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.teachsoft.dynamicclass.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".SubjectPerformanceActivity"
+            android:label="Subject Performance"
+            android:parentActivityName=".CurrentSubjectActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.teachsoft.dynamicclass.CurrentSubjectActivity" />
+        </activity>
+        <activity
+            android:name=".CurrentExerciseActivity"
+            android:label="Current Exercise">
+        </activity>
+        <activity
+            android:name=".InbetweenExercisesActivity"
+            android:label="Inbetween Exercises"
+            android:parentActivityName=".CurrentChapterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.teachsoft.dynamicclass.CurrentChapterActivity" />
+        </activity>
+    </application>
+
+</manifest>
