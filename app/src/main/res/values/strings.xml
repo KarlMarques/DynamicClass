@@ -2,4 +2,5 @@
     <string name="app_name">DynamicClass</string>
     <string name="sign_up_label">Sign Up</string>
     <string name="sign_in_label">Sign In</string>
+    <string name="empty_subjects_list">No subjects match your search.</string>
 </resources>

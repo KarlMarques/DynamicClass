@@ -2,12 +2,8 @@ package com.teachsoft.dynamicclass;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
-
-import java.util.ArrayList;
 
 public class HomeActivity extends BaseActivity {
     private Button mButtonMySubjects;
@@ -15,7 +11,7 @@ public class HomeActivity extends BaseActivity {
     private Button mButtonMyProfile;
     private Button mButtonStudentPerformance;
 
-    private MySubjectsRecyclerViewAdapter mMySubjectsRecyclerViewAdapter;
+    private static final String TAG = "HomeActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,14 +54,5 @@ public class HomeActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
-
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerMySubjects);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        recyclerView.addOnItemTouchListener(new MySubjectsRecyclerItemClickListener(this, recyclerView, this));
-
-        mMySubjectsRecyclerViewAdapter = new MySubjectsRecyclerViewAdapter(this, new ArrayList<MySubjectsRecyclerCell>());
-        recyclerView.setAdapter(mMySubjectsRecyclerViewAdapter);
-
     }
 }

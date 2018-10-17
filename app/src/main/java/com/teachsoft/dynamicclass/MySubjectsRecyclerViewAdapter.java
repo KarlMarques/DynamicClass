@@ -11,13 +11,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+//import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-class MySubjectsRecyclerViewAdapter extends RecyclerView.Adapter<FlickrRecyclerViewAdapter.FlickrImageViewHolder> {
+class MySubjectsRecyclerViewAdapter extends RecyclerView.Adapter<MySubjectsRecyclerViewAdapter.FlickrImageViewHolder> {
     private static final String TAG = "FlickrRecyclerViewAdapt";
-    private List<Photo> mPhotosList;
+    private List<MySubjectsRecyclerCell> mPhotosList;
     private Context mContext;
 
     public MySubjectsRecyclerViewAdapter(Context context, List<MySubjectsRecyclerCell> photosList) {
@@ -32,7 +32,7 @@ class MySubjectsRecyclerViewAdapter extends RecyclerView.Adapter<FlickrRecyclerV
 
         Log.d(TAG, "onCreateViewHolder: new view requested");
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.browse, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_my_subjects, parent, false);
         return new FlickrImageViewHolder(view);
     }
 
@@ -41,25 +41,20 @@ class MySubjectsRecyclerViewAdapter extends RecyclerView.Adapter<FlickrRecyclerV
 //      Called by the layout manager whn it wants new data in an existing row
 
         if ((mPhotosList == null) || (mPhotosList.size() == 0)){
-            holder.thumbnail.setImageResource(R.drawable.placeholder);
-            holder.title.setText(R.string.empty_photo);
+//            holder.thumbnail.setImageResource(R.drawable.placeholder);
+            holder.title.setText(R.string.empty_subjects_list);
         }
         else {
-            Photo photoItem = mPhotosList.get(position);
+            MySubjectsRecyclerCell photoItem = mPhotosList.get(position);
             Log.d(TAG, "onBindViewHolder: " + photoItem.getTitle() + " --> " + position);
 
-//        Older version, maybe with different params, MUST TEST
-            //        Picasso.with(mContext).load(photoItem.getImage())
-//                .error(R.drawable.placeholder)
-//                .placeholder(R.drawable.placeholder)
-//                .into(holder.thumbnail);
+//            Picasso.get().load(photoItem.getImage())
+//                    .error(R.drawable.placeholder)
+//                    .placeholder(R.drawable.placeholder)
+//                    .into(holder.thumbnail);
 
-            Picasso.get().load(photoItem.getImage())
-                    .error(R.drawable.placeholder)
-                    .placeholder(R.drawable.placeholder)
-                    .into(holder.thumbnail);
-
-            holder.title.setText(photoItem.getTitle());
+//            holder.title.setText(photoItem.getTitle());
+            holder.title.setText("1");
         }
     }
 
@@ -86,7 +81,7 @@ class MySubjectsRecyclerViewAdapter extends RecyclerView.Adapter<FlickrRecyclerV
         public FlickrImageViewHolder(View itemView) {
             super(itemView);
             Log.d(TAG, "FlickrImageViewHolder: starts");
-            this.thumbnail = (ImageView) itemView.findViewById(R.id.thumbnail);
+//            this.thumbnail = (ImageView) itemView.findViewById(R.id.thumbnail);
             this.title = (TextView) itemView.findViewById(R.id.title);
         }
     }
