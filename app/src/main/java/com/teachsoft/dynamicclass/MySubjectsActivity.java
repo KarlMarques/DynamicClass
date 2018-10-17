@@ -36,7 +36,7 @@ public class MySubjectsActivity extends BaseActivity implements MySubjectsRecycl
 
         recyclerView.addOnItemTouchListener(new MySubjectsRecyclerItemClickListener(MySubjectsActivity.this, recyclerView, MySubjectsActivity.this));
 
-        mMySubjectsRecyclerViewAdapter = new MySubjectsRecyclerViewAdapter(MySubjectsActivity.this, new ArrayList<MySubjectsRecyclerCell>());
+        mMySubjectsRecyclerViewAdapter = new MySubjectsRecyclerViewAdapter(MySubjectsActivity.this, new ArrayList<Subject>());
         recyclerView.setAdapter(mMySubjectsRecyclerViewAdapter);
     }
 
@@ -51,7 +51,7 @@ public class MySubjectsActivity extends BaseActivity implements MySubjectsRecycl
         Log.d(TAG, "onItemLongClick: starts");
 //        Toast.makeText(MainActivity.this, "Long tap at position " + position, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(MySubjectsActivity.this, MySubjectsActivity.class);
-//        intent.putExtra(MY_SUBJECTS_TRANSFER, MySubjectsRecyclerViewAdapter.getPhoto(position));
+//        intent.putExtra(MY_SUBJECTS_TRANSFER, MySubjectsRecyclerViewAdapter.getSubject(position));
         startActivity(intent);
     }
 

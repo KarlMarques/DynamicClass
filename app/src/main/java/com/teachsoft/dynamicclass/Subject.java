@@ -2,7 +2,7 @@ package com.teachsoft.dynamicclass;
 
 import java.io.Serializable;
 
-class MySubjectsRecyclerCell implements Serializable {
+class Subject implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String mTitle;
@@ -12,7 +12,7 @@ class MySubjectsRecyclerCell implements Serializable {
     private String mTags;
     private String mImage;
 
-    public MySubjectsRecyclerCell(String title, String author, String authorId, String link, String tags, String image) {
+    public Subject(String title, String author, String authorId, String link, String tags, String image) {
         mTitle = title;
         mAuthor = author;
         mAuthorId = authorId;
@@ -47,7 +47,7 @@ class MySubjectsRecyclerCell implements Serializable {
 
     @Override
     public String toString() {
-        return "Photo{" +
+        return "Subject{" +
                 "mTitle='" + mTitle + '\'' +
                 ", mAuthor='" + mAuthor + '\'' +
                 ", mAuthorId='" + mAuthorId + '\'' +
