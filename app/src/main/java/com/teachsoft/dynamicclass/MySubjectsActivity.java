@@ -10,11 +10,14 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MySubjectsActivity extends BaseActivity implements MySubjectsRecyclerItemClickListener.OnRecyclerClickListener {
     private static final String TAG = "MySubjectsActivity";
     private Button mButtonCurrentSubject;
     private MySubjectsRecyclerViewAdapter mMySubjectsRecyclerViewAdapter;
+
+    private List<Subject> mPlaceholderList = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,8 @@ public class MySubjectsActivity extends BaseActivity implements MySubjectsRecycl
 
         mMySubjectsRecyclerViewAdapter = new MySubjectsRecyclerViewAdapter(MySubjectsActivity.this, new ArrayList<Subject>());
         recyclerView.setAdapter(mMySubjectsRecyclerViewAdapter);
+
+        addPlaceholderData();
     }
 
     @Override
@@ -55,5 +60,19 @@ public class MySubjectsActivity extends BaseActivity implements MySubjectsRecycl
         startActivity(intent);
     }
 
+    public void addPlaceholderData() {
+        mPlaceholderList = new ArrayList<>();
+        int lenght = 20;
 
+        for (int i = 0; i < lenght; i++) {
+            String title = "Name " + i;
+
+            Subject photoObject = new Subject(title);
+            mPlaceholderList.add(photoObject);
+
+            Log.d(TAG, "onDownloadComplete: " + photoObject.toString());
+        }
+
+        mMySubjectsRecyclerViewAdapter.loadNewData(mPlaceholderList);
+    }
 }
