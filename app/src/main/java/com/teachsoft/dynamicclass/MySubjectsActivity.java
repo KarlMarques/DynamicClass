@@ -55,8 +55,8 @@ public class MySubjectsActivity extends BaseActivity implements MySubjectsRecycl
     public void onItemLongClick(View view, int position) {
         Log.d(TAG, "onItemLongClick: starts");
 //        Toast.makeText(MainActivity.this, "Long tap at position " + position, Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(MySubjectsActivity.this, MySubjectsActivity.class);
-//        intent.putExtra(MY_SUBJECTS_TRANSFER, MySubjectsRecyclerViewAdapter.getSubject(position));
+        Intent intent = new Intent(MySubjectsActivity.this, CurrentSubjectActivity.class);
+        intent.putExtra(MY_SUBJECTS_TRANSFER, mMySubjectsRecyclerViewAdapter.getSubject(position));
         startActivity(intent);
     }
 

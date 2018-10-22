@@ -20,7 +20,7 @@ public class SignInActivity extends BaseActivity {
         mButtonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignInActivity.this, HomeActivity.class);
+                Intent intent = new Intent(SignInActivity.this, MySubjectsActivity.class);
                 startActivity(intent);
             }
         });
@@ -28,7 +28,7 @@ public class SignInActivity extends BaseActivity {
         mButtonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (SignInActivity.this, SignUpActivity.class);
+                Intent intent = new Intent (SignInActivity.this, MySubjectsActivity.class);
                 startActivity(intent);
             }
         });

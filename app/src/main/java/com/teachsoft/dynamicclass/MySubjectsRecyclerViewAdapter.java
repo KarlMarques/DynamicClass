@@ -53,7 +53,7 @@ class MySubjectsRecyclerViewAdapter extends RecyclerView.Adapter<MySubjectsRecyc
 //                    .into(holder.thumbnail);
 
 //            holder.title.setText(subjectItem.getTitle());
-            holder.title.setText("1");
+            holder.title.setText(subjectItem.getTitle());
         }
     }
 
