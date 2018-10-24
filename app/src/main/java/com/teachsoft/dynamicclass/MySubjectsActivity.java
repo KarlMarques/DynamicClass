@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -14,7 +13,6 @@ import java.util.List;
 
 public class MySubjectsActivity extends BaseActivity implements MySubjectsRecyclerItemClickListener.OnRecyclerClickListener {
     private static final String TAG = "MySubjectsActivity";
-    private Button mButtonCurrentSubject;
     private MySubjectsRecyclerViewAdapter mMySubjectsRecyclerViewAdapter;
 
     private List<Subject> mPlaceholderList = null;
@@ -23,16 +21,6 @@ public class MySubjectsActivity extends BaseActivity implements MySubjectsRecycl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_subjects);
-
-        mButtonCurrentSubject = findViewById(R.id.buttonCurrentSubject);
-
-        mButtonCurrentSubject.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MySubjectsActivity.this, CurrentSubjectActivity.class);
-                startActivity(intent);
-            }
-        });
 
         RecyclerView recyclerView = findViewById(R.id.recyclerMySubjects);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -54,9 +42,9 @@ public class MySubjectsActivity extends BaseActivity implements MySubjectsRecycl
     @Override
     public void onItemLongClick(View view, int position) {
         Log.d(TAG, "onItemLongClick: starts");
-//        Toast.makeText(MainActivity.this, "Long tap at position " + position, Toast.LENGTH_SHORT).show();
+        Toast.makeText(MySubjectsActivity.this, "Long tap at position " + position, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(MySubjectsActivity.this, CurrentSubjectActivity.class);
-        intent.putExtra(MY_SUBJECTS_TRANSFER, mMySubjectsRecyclerViewAdapter.getSubject(position));
+        intent.putExtra(CURRENT_SUBJECT, mMySubjectsRecyclerViewAdapter.getSubject(position));
         startActivity(intent);
     }
 

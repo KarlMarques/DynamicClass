@@ -3,4 +3,8 @@
     <string name="sign_up_label">Sign Up</string>
     <string name="sign_in_label">Sign In</string>
     <string name="empty_subjects_list">No subjects match your search.</string>
+    <string name="button_my_subjects_label">My Subjects</string>
+    <string name="button_add_subject_label">Add Subject</string>
+    <string name="button_my_profile_label">My Profile</string>
+    <string name="button_student_performance_label">Student Performance</string>
 </resources>

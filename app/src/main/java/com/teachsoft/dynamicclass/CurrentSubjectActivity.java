@@ -1,10 +1,8 @@
 package com.teachsoft.dynamicclass;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -19,7 +17,7 @@ public class CurrentSubjectActivity extends BaseActivity {
         setContentView(R.layout.activity_current_subject);
 
         Intent intent = getIntent();
-        Subject subject = (Subject) intent.getSerializableExtra(MY_SUBJECTS_TRANSFER);
+        Subject subject = (Subject) intent.getSerializableExtra(CURRENT_SUBJECT);
 
         mButtonCurrentChapter = findViewById(R.id.buttonCurrentChapter);
         mButtonSubjectPerformance = findViewById(R.id.buttonSubjectPerformance);
@@ -41,7 +39,9 @@ public class CurrentSubjectActivity extends BaseActivity {
             }
         });
 
-        mTextViewCurrentSubject.setText(subject.getTitle());
+        if(subject != null){
+            mTextViewCurrentSubject.setText(subject.getTitle());
+        }
     }
 
 
